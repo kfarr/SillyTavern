@@ -21,7 +21,7 @@ RUN \
   echo "*** Install npm packages ***" && \
   npm install && npm cache clean --force
 
-Copy default chats, characters and user avatars to <folder>.default folder
+# Copy default chats, characters and user avatars to <folder>.default folder
 RUN \
   IFS="," RESOURCES="characters,chats,groups,group chats,User Avatars,worlds,OpenAI Settings,NovelAI Settings,KoboldAI Settings,TextGen Settings" && \
   \
