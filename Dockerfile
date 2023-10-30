@@ -1,5 +1,7 @@
 FROM node:19.1.0-alpine3.16
 
+USER root
+
 # Arguments
 ARG APP_HOME=/home/node/app
 
