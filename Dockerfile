@@ -14,14 +14,14 @@ ENTRYPOINT [ "tini", "--" ]
 # Create app directory
 WORKDIR ${APP_HOME}
 
+# Bundle app source
+COPY . ./
+
 # Install app dependencies
 COPY package*.json post-install.js ./
 RUN \
   echo "*** Install npm packages ***" && \
   npm install && npm cache clean --force
-
-# Bundle app source
-COPY . ./
 
 # Copy default chats, characters and user avatars to <folder>.default folder
 RUN \
