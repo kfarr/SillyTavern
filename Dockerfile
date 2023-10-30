@@ -24,19 +24,19 @@ RUN \
   npm install && npm cache clean --force
 
 # Copy default chats, characters and user avatars to <folder>.default folder
-RUN \
-  IFS="," RESOURCES="characters,chats,groups,group chats,User Avatars,worlds,OpenAI Settings,NovelAI Settings,KoboldAI Settings,TextGen Settings" && \
-  \
-  echo "*** Store default $RESOURCES in <folder>.default ***" && \
-  for R in $RESOURCES; do mv "public/$R" "public/$R.default"; done && \
-  \
-  echo "*** Create symbolic links to config directory ***" && \
-  for R in $RESOURCES; do ln -s "../config/$R" "public/$R"; done && \
-  # rm "config.conf" "public/settings.json" "public/css/bg_load.css" && \
-  ln -s "./config/config.conf" "config.conf" && \
-  ln -s "../config/settings.json" "public/settings.json" && \
-  ln -s "../../config/bg_load.css" "public/css/bg_load.css" && \
-  mkdir "config"
+# RUN \
+#   IFS="," RESOURCES="characters,chats,groups,group chats,User Avatars,worlds,OpenAI Settings,NovelAI Settings,KoboldAI Settings,TextGen Settings" && \
+#   \
+#   echo "*** Store default $RESOURCES in <folder>.default ***" && \
+#   for R in $RESOURCES; do mv "public/$R" "public/$R.default"; done && \
+#   \
+#   echo "*** Create symbolic links to config directory ***" && \
+#   for R in $RESOURCES; do ln -s "../config/$R" "public/$R"; done && \
+#   # rm "config.conf" "public/settings.json" "public/css/bg_load.css" && \
+#   ln -s "./config/config.conf" "config.conf" && \
+#   ln -s "../config/settings.json" "public/settings.json" && \
+#   ln -s "../../config/bg_load.css" "public/css/bg_load.css" && \
+#   mkdir "config"
 
 # Cleanup unnecessary files
 RUN \
